@@ -1,0 +1,19 @@
+get http://localhost:3007/api/word_game?sentence=sentences are the worst
+
+
+###
+
+post http://localhost:3007/api/phonebill/total
+Content-Type: application/json
+
+{
+    "bill": "call,sms,call"
+}
+
+
+post http://localhost:3007/api/phonebill/prices
+Content-Type: application/json
+
+{
+    "bill": "call,sms,call"
+}
