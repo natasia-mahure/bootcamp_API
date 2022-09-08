@@ -36,23 +36,31 @@ app.post("/api/phonebill/total", function(req, res){
 });
 //..................phonebill get........................................
 
-app.get("/api/phonebill/prices", function(req, res){
+// app.get("/api/phonebill/prices", function(req, res){
   
-  const prices = req.query.sentence;
-    res.json({ 
+//   const prices = req.query.sentence;
+//     res.json({ 
         
-        "type" : totalPhoneBill(call),
-        "price" : totalPrice,
-    });
-});
+//         "sms" : price,
+//         "call" : price,
+//     });
+// });
 
 
+  // Enough Airtime .....POST....................................................................
 
-
-
-
-
-
+  // app.post("/api/enough", function(req, res){
+  //   console.log(req.body);
+    
+  //   const usage = req.body.usage;
+  //   const available = req.body.available;
+  //   console.log("HERE" + enoughAirtime(usage, available))
+  //     res.json({ 
+          
+  //         result : enoughAirtime(usage, available),
+  //     });
+  // });
+  //.
 
 let PORT = process.env.PORT || 3007;
 
