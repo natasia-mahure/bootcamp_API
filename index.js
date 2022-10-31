@@ -6,8 +6,8 @@ import longestWord from "./longestword.js"
 import shortestWord from "./shortestWord.js"
 import wordLengths from "./wordLength.js"
 import totalPhoneBill from "./totalPhoneBill.js"
-app.use(cors())
 app.use(express.static('public'))
+app.use(cors())
 app.use(express.json())
 
 
