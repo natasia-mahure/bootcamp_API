@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="backgroundstyle.css">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <div x-data="{
+        sentence : '',
+        longestWord : '',
+        shortestWord : '',
+        lengthtWord :'',
+        bill :'',
+        prices :'',
+        totalBill : ' ',
+        phonecall : '',
+        phonesms : '',
+        checkprices : '',
+        usage : '',
+        available: '',
+
+
+        checkSentence(){
+            axios
+            .get(`http://localhost:3007/api/word_game?sentence=${this.sentence}`)
+            .then((result)=> {
+                console.log(result.data); 
+
+                this.longestWord = result.data.longestWord;
+                this.shortestWord = result.data.shortestWord;
+                this.lengthtWord = result.data.sum;
+            });
+        },
+
+        totalPhoneBill(){
+        console.log('runninf')
+            axios
+            .post(`http://localhost:3007/api/phonebill/total`, {
+                bill:this.bill
+            })
+            .then(result=> {
+                console.log(result.data); 
+        
+                this.totalBill = result.data.total;
+            });
+
+        },
+
+    }">
+        <header>
+            <H1><strong> BOOTCAMP API WIDGETS</strong></H1>
+            <img src="images/ab.png" alt="" width="300" height="200">
+        </header>
+        <div class="purple"></div>
+        <div class="medium-blue"></div>
+        <div class="light-blue"></div>
+        <div class="red"></div>
+        <div class="orange"></div>
+        <div class="yellow"></div>
+        <div class="cyan"></div>
+        <div class="myWidgets">
+            <div class="Word_game">
+                <div>
+                    <h2>Word_game</h2>
+                </div>
+                <textarea x-model="sentence" name="" id="" cols="30" rows="10"></textarea>
+
+                <div>
+                    <button x-on:click="checkSentence">checkSentence</button>
+                </div>
+
+                <div>
+
+                    <div>longest Word: <span x-text="longestWord"></span> </div>
+                    <div>shortest Word: <span x-text="shortestWord"></span></div>
+                    <div>sum of Words: <span x-text="lengthtWord"></span></div>
+                </div>
+            </div>
+
+
+
+            <!-- the total phone bill -->
+            <div class="Totalbill">
+                <div>
+                    <h2>Total Phone bill Widget</h2>
+                </div>
+                <div>
+                    <textarea x-model="bill" name="" id="" cols="30" rows="10"></textarea>
+
+                    <div>
+                        <button x-on:click="totalPhoneBill()">Total Phone Bill</button>
+                    </div>
+                    <div>Total Phone Bill: <span x-text="totalBill"></span> </div>
+                    <br></br>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="light-green"></div>
+        <div class="lime"></div>
+        <div class="magenta"></div>
+        <div class="lightish-red"></div>
+        <div class="pink"></div>
+    </div>
+</body>
+
+</html>

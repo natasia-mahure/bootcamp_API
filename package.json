@@ -25,7 +25,7 @@
   "contributors": [],
   "scripts": {
     "dev": "nodemon",
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "test": ""
   },
   "dependencies": {
