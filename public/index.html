@@ -7,54 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="backgroundstyle.css">
-    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="app.js"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </head>
 
 <body>
-    <div x-data="{
-        sentence : '',
-        longestWord : '',
-        shortestWord : '',
-        lengthtWord :'',
-        bill :'',
-        prices :'',
-        totalBill : ' ',
-        phonecall : '',
-        phonesms : '',
-        checkprices : '',
-        usage : '',
-        available: '',
-
-
-        checkSentence(){
-            axios
-            .get(`http://localhost:3007/api/word_game?sentence=${this.sentence}`)
-            .then((result)=> {
-                console.log(result.data); 
-
-                this.longestWord = result.data.longestWord;
-                this.shortestWord = result.data.shortestWord;
-                this.lengthtWord = result.data.sum;
-            });
-        },
-
-        totalPhoneBill(){
-        console.log('runninf')
-            axios
-            .post(`http://localhost:3007/api/phonebill/total`, {
-                bill:this.bill
-            })
-            .then(result=> {
-                console.log(result.data); 
-        
-                this.totalBill = result.data.total;
-            });
-
-        },
-
-    }">
+    <div x-data="bootCampWidgets">
         <header>
             <H1><strong> BOOTCAMP API WIDGETS</strong></H1>
             <img src="images/ab.png" alt="" width="300" height="200">
@@ -112,5 +72,3 @@
         <div class="pink"></div>
     </div>
 </body>
-
-</html>
