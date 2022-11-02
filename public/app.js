@@ -17,7 +17,7 @@ document.addEventListener('alpine:init', function () {
 
             checkSentence() {
                 axios
-                    .get(`http://localhost:3007/api/word_game?sentence=${this.sentence}`)
+                    .get(`/api/word_game?sentence=${this.sentence}`)
                     .then((result) => {
                         console.log(result.data);
 
@@ -30,7 +30,7 @@ document.addEventListener('alpine:init', function () {
             totalPhoneBill() {
                 console.log('runninf')
                 axios
-                    .post(`http://localhost:3007/api/phonebill/total`, {
+                    .post(`/api/phonebill/total`, {
                         bill: this.bill
                     })
                     .then(result => {
